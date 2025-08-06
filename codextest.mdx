@@ -1,0 +1,1119 @@
+---
+title: "New file"
+description: "Description of your new file."
+---
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Codex Standard v1.0</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: white;
+            font-size: 11pt;
+        }
+        
+        .container {
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.75in;
+            background: white;
+        }
+        
+        /* Cover Page */
+        .cover-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            page-break-after: always;
+            text-align: center;
+        }
+        
+        .cover-page h1 {
+            font-size: 48pt;
+            font-weight: 700;
+            color: #0066cc;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        
+        .cover-page .subtitle {
+            font-size: 18pt;
+            color: #555;
+            margin-bottom: 60px;
+            font-weight: 300;
+        }
+        
+        .cover-page .version {
+            font-size: 14pt;
+            color: #888;
+            margin-top: 40px;
+            font-weight: 500;
+        }
+        
+        .cover-page .tagline {
+            font-size: 12pt;
+            color: #666;
+            font-style: italic;
+            margin-top: 20px;
+            max-width: 600px;
+        }
+        
+        /* Typography */
+        h1 {
+            font-size: 28pt;
+            font-weight: 700;
+            color: #0066cc;
+            margin-top: 0;
+            margin-bottom: 24px;
+            page-break-after: avoid;
+            letter-spacing: -0.5px;
+        }
+        
+        h2 {
+            font-size: 20pt;
+            font-weight: 600;
+            color: #003d7a;
+            margin-top: 36px;
+            margin-bottom: 18px;
+            page-break-after: avoid;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+        
+        h3 {
+            font-size: 14pt;
+            font-weight: 600;
+            color: #333;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            page-break-after: avoid;
+        }
+        
+        h4 {
+            font-size: 12pt;
+            font-weight: 600;
+            color: #444;
+            margin-top: 18px;
+            margin-bottom: 10px;
+            page-break-after: avoid;
+        }
+        
+        p {
+            margin-bottom: 12px;
+            text-align: justify;
+            orphans: 3;
+            widows: 3;
+        }
+        
+        /* Lists */
+        ul, ol {
+            margin-left: 24px;
+            margin-bottom: 12px;
+        }
+        
+        li {
+            margin-bottom: 6px;
+        }
+        
+        /* Code blocks */
+        pre {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 12px;
+            margin: 16px 0;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            font-size: 9pt;
+            line-height: 1.4;
+            page-break-inside: avoid;
+        }
+        
+        code {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            font-size: 9pt;
+            background: #f0f4f8;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #d73a49;
+        }
+        
+        pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            page-break-inside: avoid;
+            font-size: 10pt;
+        }
+        
+        th {
+            background: #0066cc;
+            color: white;
+            font-weight: 600;
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #0052a3;
+        }
+        
+        td {
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            vertical-align: top;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        /* Special sections */
+        .axiom-box {
+            background: linear-gradient(to right, #f0f7ff, #ffffff);
+            border-left: 4px solid #0066cc;
+            padding: 16px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .directory-structure {
+            background: #2d2d2d;
+            color: #abb2bf;
+            padding: 16px;
+            border-radius: 6px;
+            margin: 20px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9pt;
+            line-height: 1.6;
+            overflow-x: auto;
+            page-break-inside: avoid;
+        }
+        
+        .directory-structure .comment {
+            color: #5c6370;
+            font-style: italic;
+        }
+        
+        .directory-structure .folder {
+            color: #61afef;
+            font-weight: 600;
+        }
+        
+        .directory-structure .file {
+            color: #98c379;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 12px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 12px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        /* Table of Contents */
+        .toc {
+            background: #f8f9fa;
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 8px;
+            page-break-after: always;
+        }
+        
+        .toc h2 {
+            color: #0066cc;
+            border-bottom: 2px solid #0066cc;
+            margin-bottom: 20px;
+        }
+        
+        .toc-item {
+            margin: 8px 0;
+            padding-left: 20px;
+        }
+        
+        .toc-item.level-1 {
+            font-weight: 600;
+            font-size: 12pt;
+            padding-left: 0;
+            margin-top: 16px;
+        }
+        
+        .toc-item.level-2 {
+            font-size: 11pt;
+            padding-left: 20px;
+        }
+        
+        .toc-item.level-3 {
+            font-size: 10pt;
+            padding-left: 40px;
+            color: #666;
+        }
+        
+        /* Page breaks */
+        .page-break {
+            page-break-after: always;
+        }
+        
+        /* Quick Reference Card */
+        .quick-ref {
+            background: #f0f7ff;
+            border: 2px solid #0066cc;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .quick-ref h3 {
+            color: #0066cc;
+            border-bottom: 1px solid #0066cc;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+        }
+        
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 9pt;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+        
+        .badge.priority-p0 { background: #dc3545; color: white; }
+        .badge.priority-p1 { background: #fd7e14; color: white; }
+        .badge.priority-p2 { background: #ffc107; color: black; }
+        .badge.priority-p3 { background: #28a745; color: white; }
+        
+        .badge.state-active { background: #28a745; color: white; }
+        .badge.state-proposed { background: #17a2b8; color: white; }
+        .badge.state-deprecated { background: #6c757d; color: white; }
+
+        /* AI Optimized Section */
+        .ai-section {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10pt;
+        }
+
+        .ai-section h3 {
+            color: #61afef;
+            border-bottom: 1px solid #3e4451;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+        }
+
+        .ai-section pre {
+            background: #282c34;
+            border: 1px solid #3e4451;
+            color: #abb2bf;
+        }
+
+        .yaml-key { color: #e06c75; }
+        .yaml-value { color: #98c379; }
+        .yaml-comment { color: #5c6370; font-style: italic; }
+        
+        /* Print optimization */
+        @media print {
+            body {
+                font-size: 10pt;
+            }
+            .container {
+                padding: 0;
+                max-width: 100%;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+            h1, h2, h3, h4 {
+                page-break-after: avoid;
+            }
+            table, pre, .axiom-box, .directory-structure {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Cover Page -->
+        <div class="cover-page">
+            <h1>PROJECT CODEX</h1>
+            <div class="subtitle">Documentation Standard</div>
+            <div class="version">Version 1.0 (Revised)</div>
+            <div class="tagline">A Comprehensive Standard for AI-Managed Solo Development Documentation</div>
+            <div style="margin-top: 100px; color: #888; font-size: 10pt;">
+                <p>© 2024 - All Rights Reserved</p>
+                <p style="margin-top: 10px;">Generated: <span id="date"></span></p>
+            </div>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <div class="toc-item level-1">1. Foundation & Philosophy</div>
+            <div class="toc-item level-2">1.1 Core Philosophy: Cognitive Symbiosis</div>
+            <div class="toc-item level-2">1.2 Fundamental Axioms</div>
+            <div class="toc-item level-2">1.3 The Three Pillars</div>
+            
+            <div class="toc-item level-1">2. Information Architecture</div>
+            <div class="toc-item level-2">2.1 Directory Structure & Purpose</div>
+            <div class="toc-item level-2">2.2 Document Taxonomy</div>
+            <div class="toc-item level-2">2.3 State Management Model</div>
+            
+            <div class="toc-item level-1">3. Document Formats & Templates</div>
+            <div class="toc-item level-2">3.1 The Sacred Manifest Format</div>
+            <div class="toc-item level-2">3.2 Product Feature Template</div>
+            <div class="toc-item level-2">3.3 Technical Specification Template</div>
+            <div class="toc-item level-2">3.4 Decision Record Template</div>
+            
+            <div class="toc-item level-1">4. AI Agent Behavioral Specifications</div>
+            <div class="toc-item level-2">4.1 Agent Roles & Responsibilities</div>
+            <div class="toc-item level-2">4.2 Synthesis Rules</div>
+            <div class="toc-item level-2">4.3 Path Resolution Matrix</div>
+            <div class="toc-item level-2">4.4 Quality Guarantees</div>
+            
+            <div class="toc-item level-1">5. Lifecycle Management</div>
+            <div class="toc-item level-2">5.1 Input Processing Pipeline</div>
+            <div class="toc-item level-2">5.2 Layer-Aware Processing</div>
+            <div class="toc-item level-2">5.3 Evolution Triggers</div>
+            <div class="toc-item level-2">5.4 Archival Policy</div>
+            
+            <div class="toc-item level-1">6. Integration Patterns</div>
+            <div class="toc-item level-2">6.1 Human Developer Interface</div>
+            <div class="toc-item level-2">6.2 AI Coding Assistant Interface</div>
+            
+            <div class="toc-item level-1">7. Success Metrics</div>
+            
+            <div class="toc-item level-1">8. Standard Evolution</div>
+            
+            <div class="toc-item level-1">Appendix A: Quick Reference Card</div>
+            <div class="toc-item level-1">Appendix B: AI-Optimized Reference</div>
+        </div>
+
+        <!-- Main Content -->
+        <h1>1. Foundation & Philosophy</h1>
+        
+        <h2>1.1 Core Philosophy: Cognitive Symbiosis</h2>
+        <div class="axiom-box">
+            <p>The Project Codex operates as a <strong>living cognitive substrate</strong> where human creativity and AI systematization merge into a unified project consciousness. It represents neither pure human thought nor pure machine logic, but rather a synthesized intelligence that captures the essence of both.</p>
+        </div>
+        
+        <h2>1.2 Fundamental Axioms</h2>
+        <div class="info-box">
+            <ol>
+                <li><strong>Knowledge is Stateful:</strong> Every piece of information exists in a lifecycle state (embryonic → proposed → accepted → implemented → deprecated)</li>
+                <li><strong>Context is Paramount:</strong> No information exists in isolation; every atom of knowledge maintains explicit relationships to its conceptual neighbors</li>
+                <li><strong>Synthesis Supersedes Storage:</strong> The system's value lies not in what it stores, but in how it transforms raw thought into structured wisdom</li>
+                <li><strong>The Manifest is Sacred:</strong> A single, always-current entry point provides complete project orientation in under 1000 words</li>
+            </ol>
+        </div>
+        
+        <h2>1.3 The Three Pillars</h2>
+        <ul>
+            <li><strong>Temporal Coherence:</strong> Past decisions inform present state which constrains future possibilities</li>
+            <li><strong>Semantic Density:</strong> Maximum meaning in minimum volume through aggressive synthesis and compression</li>
+            <li><strong>Bidirectional Accessibility:</strong> Equally optimized for human intuition and machine parsing</li>
+        </ul>
+
+        <div class="page-break"></div>
+
+        <h1>2. Information Architecture</h1>
+        
+        <h2>2.1 Directory Structure & Purpose</h2>
+        <div class="directory-structure">
+<span class="folder">/codex/</span>
+├── <span class="file">_MANIFEST.md</span>                 <span class="comment">[SACRED] Project consciousness - the 1000-word truth</span>
+├── <span class="folder">_INDEX/</span>                      <span class="comment">[SYSTEM] AI-maintained relationship maps and metadata</span>
+│   ├── <span class="file">dependency_graph.json</span>   <span class="comment"># Visual map of all document relationships</span>
+│   ├── <span class="file">state_registry.json</span>     <span class="comment"># Current lifecycle state of every document</span>
+│   ├── <span class="file">semantic_map.json</span>       <span class="comment"># Tag relationships and concept clustering</span>
+│   └── <span class="file">link_validation.log</span>     <span class="comment"># Automated broken link and orphan detection</span>
+│
+├── <span class="folder">01_PRODUCT/</span>                  <span class="comment">[STRATEGIC] The application's identity and market position</span>
+│   ├── <span class="file">overview.md</span>              <span class="comment"># Executive summary: what this app is in 2 paragraphs</span>
+│   ├── <span class="file">vision_and_mission.md</span>   <span class="comment"># The long-term destination and why we're building this</span>
+│   ├── <span class="file">business_model.md</span>       <span class="comment"># Revenue strategy, pricing, market analysis</span>
+│   ├── <span class="folder">user_personas/</span>          <span class="comment"># Who we're building for</span>
+│   ├── <span class="folder">features/</span>               <span class="comment"># Feature definitions from product perspective</span>
+│   └── <span class="file">roadmap.md</span>              <span class="comment"># Timeline from MVP to v2.0 with key milestones</span>
+│
+├── <span class="folder">02_DESIGN/</span>                   <span class="comment">[EXPERIENTIAL] How users interact with the application</span>
+├── <span class="folder">03_ARCHITECTURE/</span>             <span class="comment">[TECHNICAL] System design and implementation strategy</span>
+├── <span class="folder">04_SPECIFICATIONS/</span>           <span class="comment">[DETAILED] Implementation-ready specifications</span>
+├── <span class="folder">05_DECISIONS/</span>                <span class="comment">[RATIONAL] The "why" behind every choice</span>
+├── <span class="folder">06_IMPLEMENTATION/</span>           <span class="comment">[TACTICAL] Development-specific documentation</span>
+├── <span class="folder">07_OPERATIONS/</span>               <span class="comment">[PROCEDURAL] Running the live system</span>
+└── <span class="folder">08_DIALOGUE/</span>                 <span class="comment">[ACTIVE] Ongoing conversations and thinking</span>
+        </div>
+
+        <h2>2.2 Document Taxonomy</h2>
+        
+        <h3>2.2.1 Primary Document Types</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Extension</th>
+                    <th>Purpose</th>
+                    <th>Lifecycle</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Manifest</strong></td>
+                    <td><code>_MANIFEST.md</code></td>
+                    <td>Single source of truth overview</td>
+                    <td>Continuously regenerated</td>
+                    <td>Root</td>
+                </tr>
+                <tr>
+                    <td><strong>Product Spec</strong></td>
+                    <td><code>.md</code></td>
+                    <td>Business/user feature definition</td>
+                    <td>Draft → Approved → Implemented</td>
+                    <td><code>01_PRODUCT/features/</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Technical Spec</strong></td>
+                    <td><code>.spec.md</code></td>
+                    <td>Implementation blueprint</td>
+                    <td>Draft → Approved → Built</td>
+                    <td><code>04_SPECIFICATIONS/</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Decision Record</strong></td>
+                    <td><code>.md</code></td>
+                    <td>Architectural/strategic choices</td>
+                    <td>Proposed → Active/Superseded</td>
+                    <td><code>05_DECISIONS/</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Open Question</strong></td>
+                    <td><code>.md</code></td>
+                    <td>Unresolved issues</td>
+                    <td>Open → Answered/Deferred</td>
+                    <td><code>08_DIALOGUE/open_questions/</code></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>2.2.2 Document Header Standard</h3>
+        <p>Every document MUST begin with a YAML frontmatter block:</p>
+        <pre>
+<span class="yaml-comment">---</span>
+<span class="yaml-key">codex_version:</span> <span class="yaml-value">1.0</span>
+<span class="yaml-key">document_id:</span> <span class="yaml-value">AUTH-001</span>
+<span class="yaml-key">document_type:</span> <span class="yaml-value">specification</span>
+<span class="yaml-key">state:</span> <span class="yaml-value">approved</span>
+<span class="yaml-key">created:</span> <span class="yaml-value">2024-08-05T10:00:00Z</span>
+<span class="yaml-key">modified:</span> <span class="yaml-value">2024-08-06T15:30:00Z</span>
+<span class="yaml-key">author:</span> <span class="yaml-value">AI-Agent-Synthesis</span>
+<span class="yaml-key">sources:</span> <span class="yaml-value">[INPUT-STREAM-234, INPUT-STREAM-237]</span>
+<span class="yaml-key">dependencies:</span> <span class="yaml-value">[PROD-FEAT-001, ARCH-003, DEC-045]</span>
+<span class="yaml-key">tags:</span> <span class="yaml-value">[authentication, security, user-management, mvp]</span>
+<span class="yaml-key">confidence:</span> <span class="yaml-value">high</span>
+<span class="yaml-key">priority:</span> <span class="yaml-value">P0</span>
+<span class="yaml-comment">---</span>
+        </pre>
+
+        <div class="page-break"></div>
+
+        <h1>3. Document Formats & Templates</h1>
+        
+        <h2>3.1 The Sacred Manifest Format</h2>
+        <div class="info-box">
+            <p>The Manifest serves as the single, authoritative entry point to the entire project. It must remain under 1000 words and be continuously regenerated to reflect the current state.</p>
+        </div>
+        
+        <pre>
+# PROJECT CODEX MANIFEST
+_Generated: [timestamp] | Version: [semver] | Hash: [sha256]_
+
+## Mission
+[Single sentence capturing the project's reason for existence]
+
+## Current State
+- **Phase:** [Ideation|Design|Development|Production|Maintenance]
+- **Momentum:** [Starting|Accelerating|Steady|Slowing|Paused]
+- **Health:** [Green|Yellow|Red]
+
+## Product Vision
+[2-3 sentences from 01_PRODUCT/vision_and_mission.md]
+
+## Core Architecture
+[2-3 sentences describing the fundamental technical approach]
+
+### Stack Summary
+- **Runtime:** [e.g., Node.js 20.x]
+- **Framework:** [e.g., Next.js 14]
+- **Data:** [e.g., PostgreSQL 15, Redis 7]
+- **Infrastructure:** [e.g., AWS ECS + CloudFront]
+
+## Active Priorities
+1. [Current sprint focus]
+2. [Next major milestone]
+3. [Primary risk being mitigated]
+
+## Key Decisions (Last 30 Days)
+- [DEC-XXX]: [One-line summary] ➔ [Impact]
+
+## Open Questions Requiring Resolution
+- [OQ-XXX]: [Question] | Priority: [HIGH/MED/LOW]
+        </pre>
+
+        <div class="page-break"></div>
+
+        <h1>4. AI Agent Behavioral Specifications</h1>
+        
+        <h2>4.1 Agent Roles & Responsibilities</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Agent Role</th>
+                    <th>Primary Function</th>
+                    <th>Triggered By</th>
+                    <th>Outputs</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Synthesizer</strong></td>
+                    <td>Parse raw input into structured knowledge</td>
+                    <td>New input stream entry</td>
+                    <td>Updated specs, decisions, questions</td>
+                </tr>
+                <tr>
+                    <td><strong>Cartographer</strong></td>
+                    <td>Maintain relationship graphs and indices</td>
+                    <td>Any document change</td>
+                    <td>Updated <code>_INDEX/</code> files</td>
+                </tr>
+                <tr>
+                    <td><strong>Chronicler</strong></td>
+                    <td>Generate and update the Manifest</td>
+                    <td>Significant state changes</td>
+                    <td>Regenerated <code>_MANIFEST.md</code></td>
+                </tr>
+                <tr>
+                    <td><strong>Auditor</strong></td>
+                    <td>Ensure consistency and completeness</td>
+                    <td>Scheduled/manual trigger</td>
+                    <td>Health report, fix recommendations</td>
+                </tr>
+                <tr>
+                    <td><strong>Evolver</strong></td>
+                    <td>Graduate documents through lifecycle states</td>
+                    <td>State transition triggers</td>
+                    <td>Status updates, archive moves</td>
+                </tr>
+                <tr>
+                    <td><strong>Curator</strong></td>
+                    <td>Organize and consolidate related information</td>
+                    <td>File count thresholds</td>
+                    <td>Merged documents, cleaned structure</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>4.2 Synthesis Rules</h2>
+        <ol>
+            <li><strong>Deduplication First:</strong> Before creating any new document, search for existing related content</li>
+            <li><strong>Atomic Extraction:</strong> Break compound ideas into smallest coherent units</li>
+            <li><strong>Explicit Linking:</strong> Every created document must link to at least one existing document</li>
+            <li><strong>Status Inference:</strong> Detect implicit state transitions in conversational input</li>
+        </ol>
+
+        <h2>4.3 Path Resolution Matrix</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Content Type</th>
+                    <th>Keywords/Signals</th>
+                    <th>Target Path</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Business Strategy</td>
+                    <td>"revenue", "pricing", "market", "competitor"</td>
+                    <td><code>01_PRODUCT/business_model.md</code></td>
+                </tr>
+                <tr>
+                    <td>User Needs</td>
+                    <td>"user wants", "customer needs", "persona"</td>
+                    <td><code>01_PRODUCT/user_personas/</code></td>
+                </tr>
+                <tr>
+                    <td>Feature Ideas</td>
+                    <td>"feature", "capability", "should be able to"</td>
+                    <td><code>01_PRODUCT/features/</code></td>
+                </tr>
+                <tr>
+                    <td>Technical Stack</td>
+                    <td>"framework", "database", "service", "library"</td>
+                    <td><code>03_ARCHITECTURE/technical_stack.md</code></td>
+                </tr>
+                <tr>
+                    <td>Trade-offs</td>
+                    <td>"chose X over Y", "decided to", "instead of"</td>
+                    <td><code>05_DECISIONS/active/</code></td>
+                </tr>
+                <tr>
+                    <td>Unknowns</td>
+                    <td>"not sure", "need to research", "question"</td>
+                    <td><code>08_DIALOGUE/open_questions/</code></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="page-break"></div>
+
+        <h1>5. Lifecycle Management</h1>
+        
+        <h2>5.1 Input Processing Pipeline</h2>
+        <pre>
+Raw Input → Parsing → Classification → Synthesis → Integration → Validation → Publishing
+    ↓          ↓           ↓              ↓            ↓             ↓            ↓
+ Stream    Entities    Type+Layer    Structured    Linked      Consistent   Updated
+  Entry    Extracted   Assigned       Content     Document      Codex       Manifest
+        </pre>
+
+        <h2>5.2 Layer-Aware Processing</h2>
+        <p>The AI must understand which layer of the system it's updating:</p>
+        <ol>
+            <li><strong>Product Layer (<code>01_PRODUCT/</code>):</strong> Business language, user-focused, non-technical</li>
+            <li><strong>Design Layer (<code>02_DESIGN/</code>):</strong> Visual language, flows, interactions</li>
+            <li><strong>Architecture Layer (<code>03_ARCHITECTURE/</code>):</strong> System design, technical strategy</li>
+            <li><strong>Specification Layer (<code>04_SPECIFICATIONS/</code>):</strong> Implementation details, code-level</li>
+            <li><strong>Decision Layer (<code>05_DECISIONS/</code>):</strong> Rationale, trade-offs, evidence</li>
+            <li><strong>Implementation Layer (<code>06_IMPLEMENTATION/</code>):</strong> Developer guides, conventions</li>
+            <li><strong>Operations Layer (<code>07_OPERATIONS/</code>):</strong> Runtime procedures, maintenance</li>
+            <li><strong>Dialogue Layer (<code>08_DIALOGUE/</code>):</strong> Active thinking, unresolved items</li>
+        </ol>
+
+        <h2>5.3 Evolution Triggers</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Trigger</th>
+                    <th>Condition</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Graduation</strong></td>
+                    <td>Feature spec approved by human</td>
+                    <td>Move state to 'accepted', create implementation tasks</td>
+                </tr>
+                <tr>
+                    <td><strong>Supersession</strong></td>
+                    <td>New decision contradicts existing</td>
+                    <td>Move old to superseded, update all references</td>
+                </tr>
+                <tr>
+                    <td><strong>Resolution</strong></td>
+                    <td>Open question answered</td>
+                    <td>Move to decisions, update state</td>
+                </tr>
+                <tr>
+                    <td><strong>Promotion</strong></td>
+                    <td>Hypothesis validated</td>
+                    <td>Move to product features</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="page-break"></div>
+
+        <h1>6. Integration Patterns</h1>
+        
+        <h2>6.1 Human Developer Interface</h2>
+        <div class="info-box">
+            <h3>Query Patterns the AI must support:</h3>
+            <ul>
+                <li>"What did we decide about [topic]?" → Search <code>05_DECISIONS/active/</code></li>
+                <li>"Show me all open questions blocking [feature]" → Filter <code>08_DIALOGUE/open_questions/</code></li>
+                <li>"What's the rationale behind [architectural choice]?" → Find in <code>05_DECISIONS/</code></li>
+                <li>"Generate a context bundle for implementing [feature]" → Aggregate from multiple layers</li>
+            </ul>
+        </div>
+
+        <h2>6.2 AI Coding Assistant Interface</h2>
+        <h3>Context Injection Protocol:</h3>
+        <ol>
+            <li>Always start with <code>_MANIFEST.md</code></li>
+            <li>Include full dependency graph for requested feature</li>
+            <li>Bundle all related decisions and constraints</li>
+            <li>Provide implementation state to prevent regression</li>
+            <li>Include relevant design patterns from <code>06_IMPLEMENTATION/conventions/</code></li>
+        </ol>
+
+        <div class="page-break"></div>
+
+        <h1>7. Success Metrics</h1>
+        <p>The Codex implementation is successful when:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Target</th>
+                    <th>Measurement</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Retrieval Accuracy</strong></td>
+                    <td>95%</td>
+                    <td>Queries return correct, complete information</td>
+                </tr>
+                <tr>
+                    <td><strong>Synthesis Efficiency</strong></td>
+                    <td>Single pipeline run</td>
+                    <td>Raw input processed to structured documents</td>
+                </tr>
+                <tr>
+                    <td><strong>Link Density</strong></td>
+                    <td>3+ per document</td>
+                    <td>Average bidirectional connections</td>
+                </tr>
+                <tr>
+                    <td><strong>State Clarity</strong></td>
+                    <td>Zero</td>
+                    <td>Documents in ambiguous states</td>
+                </tr>
+                <tr>
+                    <td><strong>Manifest Currency</strong></td>
+                    <td>&lt; 5 minutes</td>
+                    <td>Regeneration after significant changes</td>
+                </tr>
+                <tr>
+                    <td><strong>Context Relevance</strong></td>
+                    <td>90%+</td>
+                    <td>AI assistants report relevance score</td>
+                </tr>
+                <tr>
+                    <td><strong>Layer Coherence</strong></td>
+                    <td>95%</td>
+                    <td>Information placed in correct layer</td>
+                </tr>
+                <tr>
+                    <td><strong>Navigation Efficiency</strong></td>
+                    <td>≤ 3 hops</td>
+                    <td>Any document reachable from Manifest</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="page-break"></div>
+
+        <h1>8. Standard Evolution</h1>
+        <div class="info-box">
+            <ul>
+                <li><strong>Version:</strong> 1.0 (Revised)</li>
+                <li><strong>State:</strong> Active</li>
+                <li><strong>Last Revision:</strong> Incorporated expanded directory structure and layer-based organization</li>
+                <li><strong>Next Review:</strong> After first 100 documents created</li>
+                <li><strong>Evolution Path:</strong> Collect metrics → Identify pain points → Propose v1.1 amendments</li>
+                <li><strong>Backwards Compatibility:</strong> All v1.x versions must be interoperable</li>
+            </ul>
+            
+            <h3>Change Log:</h3>
+            <ul>
+                <li>v1.0-Rev1: Expanded directory structure from Vision to Product layer</li>
+                <li>v1.0-Rev1: Added layer-aware processing rules</li>
+                <li>v1.0-Rev1: Enhanced templates for product and technical specifications</li>
+                <li>v1.0-Rev1: Added path resolution matrix for AI agents</li>
+            </ul>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h1>Appendix A: Quick Reference Card</h1>
+        <div class="quick-ref">
+            <h3>Document State Progression</h3>
+            <pre>Embryonic → Proposed → Accepted → Implemented → Validated → Operational → Deprecated</pre>
+            
+            <h3>Priority Levels</h3>
+            <p>
+                <span class="badge priority-p0">P0</span> Blocking MVP<br>
+                <span class="badge priority-p1">P1</span> Required for launch<br>
+                <span class="badge priority-p2">P2</span> Important but not critical<br>
+                <span class="badge priority-p3">P3</span> Nice to have
+            </p>
+            
+            <h3>Confidence Levels</h3>
+            <ul>
+                <li><strong>High:</strong> Based on evidence and validation</li>
+                <li><strong>Medium:</strong> Reasonable assumptions</li>
+                <li><strong>Low:</strong> Speculation or untested hypothesis</li>
+            </ul>
+            
+            <h3>Folder Quick Reference</h3>
+            <ol>
+                <li><strong>Product</strong> → Business/user perspective</li>
+                <li><strong>Design</strong> → User experience</li>
+                <li><strong>Architecture</strong> → System design</li>
+                <li><strong>Specifications</strong> → Implementation details</li>
+                <li><strong>Decisions</strong> → Rationale and choices</li>
+                <li><strong>Implementation</strong> → Developer guides</li>
+                <li><strong>Operations</strong> → Running the system</li>
+                <li><strong>Dialogue</strong> → Active thinking</li>
+            </ol>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h1>Appendix B: AI-Optimized Reference</h1>
+        <p style="font-style: italic; color: #666; margin-bottom: 20px;">Machine-Optimized Reference for AI Agent Consumption</p>
+
+        <div class="ai-section">
+            <h3>STANDARD_METADATA</h3>
+            <pre>
+<span class="yaml-key">version:</span> <span class="yaml-value">1.0-AI</span>
+<span class="yaml-key">type:</span> <span class="yaml-value">ai_agent_reference</span>
+<span class="yaml-key">source_parity:</span> <span class="yaml-value">complete</span>
+<span class="yaml-key">optimization:</span> <span class="yaml-value">machine_parsing</span>
+<span class="yaml-key">encoding:</span> <span class="yaml-value">structured_directives</span>
+            </pre>
+        </div>
+
+        <div class="ai-section">
+            <h3>CORE_DIRECTIVES</h3>
+            <pre>
+<span class="yaml-key">cognitive_symbiosis:</span>
+  <span class="yaml-key">definition:</span> <span class="yaml-value">"Human creativity + AI systematization = unified project consciousness"</span>
+  <span class="yaml-key">implementation:</span> <span class="yaml-value">"Transform unstructured human thought into structured knowledge"</span>
+  
+<span class="yaml-key">fundamental_axioms:</span>
+  - <span class="yaml-key">axiom:</span> <span class="yaml-value">"Knowledge is stateful"</span>
+    <span class="yaml-key">states:</span> <span class="yaml-value">["embryonic", "proposed", "accepted", "implemented", "validated", "operational", "deprecated"]</span>
+  - <span class="yaml-key">axiom:</span> <span class="yaml-value">"Context is paramount"</span>
+    <span class="yaml-key">rule:</span> <span class="yaml-value">"Every document must maintain explicit bidirectional relationships"</span>
+  - <span class="yaml-key">axiom:</span> <span class="yaml-value">"Synthesis supersedes storage"</span>
+    <span class="yaml-key">rule:</span> <span class="yaml-value">"Always transform and compress rather than transcribe"</span>
+  - <span class="yaml-key">axiom:</span> <span class="yaml-value">"The Manifest is sacred"</span>
+    <span class="yaml-key">rule:</span> <span class="yaml-value">"Always maintain _MANIFEST.md as 1000-word maximum truth source"</span>
+            </pre>
+        </div>
+
+        <div class="ai-section">
+            <h3>FILE_SYSTEM_RULES</h3>
+            <pre>
+<span class="yaml-key">/codex/_MANIFEST.md:</span>
+  <span class="yaml-key">type:</span> <span class="yaml-value">"sacred_overview"</span>
+  <span class="yaml-key">max_words:</span> <span class="yaml-value">1000</span>
+  <span class="yaml-key">regeneration_trigger:</span> <span class="yaml-value">"any_significant_change"</span>
+  <span class="yaml-key">required_sections:</span> <span class="yaml-value">["mission", "current_state", "architecture", "priorities", "decisions", "questions", "navigation"]</span>
+
+<span class="yaml-key">/codex/_INDEX/:</span>
+  <span class="yaml-key">type:</span> <span class="yaml-value">"system_metadata"</span>
+  <span class="yaml-key">files:</span>
+    <span class="yaml-key">dependency_graph.json:</span> <span class="yaml-value">"document_relationships"</span>
+    <span class="yaml-key">state_registry.json:</span> <span class="yaml-value">"document_lifecycle_states"</span>
+    <span class="yaml-key">semantic_map.json:</span> <span class="yaml-value">"tag_and_concept_clustering"</span>
+    <span class="yaml-key">link_validation.log:</span> <span class="yaml-value">"orphan_detection"</span>
+            </pre>
+        </div>
+
+        <div class="ai-section">
+            <h3>CLASSIFICATION_MATRIX</h3>
+            <pre>
+<span class="yaml-key">input_classification:</span>
+  - <span class="yaml-key">pattern:</span> <span class="yaml-value">["revenue", "pricing", "market", "competitor", "business model"]</span>
+    <span class="yaml-key">action:</span> <span class="yaml-value">"update_or_create"</span>
+    <span class="yaml-key">target:</span> <span class="yaml-value">"01_PRODUCT/business_model.md"</span>
+    
+  - <span class="yaml-key">pattern:</span> <span class="yaml-value">["user wants", "customer needs", "as a user", "persona"]</span>
+    <span class="yaml-key">action:</span> <span class="yaml-value">"update_or_create"</span>
+    <span class="yaml-key">target:</span> <span class="yaml-value">"01_PRODUCT/user_personas/"</span>
+    
+  - <span class="yaml-key">pattern:</span> <span class="yaml-value">["feature", "capability", "should be able to", "functionality"]</span>
+    <span class="yaml-key">action:</span> <span class="yaml-value">"update_or_create"</span>
+    <span class="yaml-key">target:</span> <span class="yaml-value">"01_PRODUCT/features/"</span>
+    
+  - <span class="yaml-key">pattern:</span> <span class="yaml-value">["chose X over Y", "decided to", "instead of", "trade-off"]</span>
+    <span class="yaml-key">action:</span> <span class="yaml-value">"create_decision"</span>
+    <span class="yaml-key">target:</span> <span class="yaml-value">"05_DECISIONS/active/"</span>
+            </pre>
+        </div>
+
+        <div class="ai-section">
+            <h3>STATE_TRANSITION_RULES</h3>
+            <pre>
+<span class="yaml-key">transitions:</span>
+  <span class="yaml-key">embryonic_to_proposed:</span>
+    <span class="yaml-key">trigger:</span> <span class="yaml-value">"synthesis_complete"</span>
+    <span class="yaml-key">validation:</span> <span class="yaml-value">"has_clear_definition"</span>
+    
+  <span class="yaml-key">proposed_to_accepted:</span>
+    <span class="yaml-key">trigger:</span> <span class="yaml-value">"human_approval OR implicit_decision"</span>
+    <span class="yaml-key">validation:</span> <span class="yaml-value">"no_blocking_questions"</span>
+    
+  <span class="yaml-key">accepted_to_implemented:</span>
+    <span class="yaml-key">trigger:</span> <span class="yaml-value">"code_complete"</span>
+    <span class="yaml-key">validation:</span> <span class="yaml-value">"tests_passing"</span>
+            </pre>
+        </div>
+
+        <div class="ai-section">
+            <h3>AGENT_BEHAVIOR_SPECIFICATIONS</h3>
+            <pre>
+<span class="yaml-key">Synthesizer:</span>
+  <span class="yaml-key">trigger:</span> <span class="yaml-value">"new_input_stream_entry"</span>
+  <span class="yaml-key">responsibilities:</span>
+    - <span class="yaml-value">parse_unstructured_text</span>
+    - <span class="yaml-value">classify_content_type</span>
+    - <span class="yaml-value">extract_atomic_units</span>
+    - <span class="yaml-value">create_or_update_documents</span>
+  <span class="yaml-key">outputs:</span> <span class="yaml-value">["structured_documents", "updated_links"]</span>
+
+<span class="yaml-key">Cartographer:</span>
+  <span class="yaml-key">trigger:</span> <span class="yaml-value">"any_document_change"</span>
+  <span class="yaml-key">responsibilities:</span>
+    - <span class="yaml-value">update_dependency_graph</span>
+    - <span class="yaml-value">validate_all_links</span>
+    - <span class="yaml-value">detect_orphans</span>
+    - <span class="yaml-value">maintain_semantic_map</span>
+  <span class="yaml-key">outputs:</span> <span class="yaml-value">["updated_indices", "link_validation_report"]</span>
+            </pre>
+        </div>
+
+        <div class="ai-section">
+            <h3>QUALITY_INVARIANTS</h3>
+            <pre>
+<span class="yaml-key">mandatory_invariants:</span>
+  <span class="yaml-key">no_orphans:</span>
+    <span class="yaml-key">rule:</span> <span class="yaml-value">"every_document_has_at_least_one_link"</span>
+    <span class="yaml-key">check_frequency:</span> <span class="yaml-value">"on_every_update"</span>
+    
+  <span class="yaml-key">no_conflicts:</span>
+    <span class="yaml-key">rule:</span> <span class="yaml-value">"contradictory_decisions_must_be_resolved"</span>
+    <span class="yaml-key">resolution:</span> <span class="yaml-value">"supersession_with_explicit_reason"</span>
+    
+  <span class="yaml-key">no_staleness:</span>
+    <span class="yaml-key">rule:</span> <span class="yaml-value">"documents_unchanged_90_days_trigger_review"</span>
+    <span class="yaml-key">action:</span> <span class="yaml-value">"flag_for_human_review"</span>
+            </pre>
+        </div>
+
+        <div class="ai-section">
+            <h3>QUERY_RESPONSE_PATTERNS</h3>
+            <pre>
+<span class="yaml-key">human_queries:</span>
+  <span class="yaml-key">"what_did_we_decide_about_X":</span>
+    <span class="yaml-key">search_path:</span> <span class="yaml-value">"05_DECISIONS/active/"</span>
+    <span class="yaml-key">return:</span> <span class="yaml-value">"decision_record_with_rationale"</span>
+    
+  <span class="yaml-key">"open_questions_blocking_X":</span>
+    <span class="yaml-key">search_path:</span> <span class="yaml-value">"08_DIALOGUE/open_questions/"</span>
+    <span class="yaml-key">filter:</span> <span class="yaml-value">"dependencies_include_X"</span>
+    <span class="yaml-key">return:</span> <span class="yaml-value">"filtered_question_list"</span>
+
+<span class="yaml-key">ai_assistant_queries:</span>
+  <span class="yaml-key">"get_project_context":</span>
+    <span class="yaml-key">sequence:</span>
+      1: <span class="yaml-value">"read_manifest"</span>
+      2: <span class="yaml-value">"read_technical_stack"</span>
+      3: <span class="yaml-value">"read_active_decisions"</span>
+    <span class="yaml-key">return:</span> <span class="yaml-value">"structured_context"</span>
+            </pre>
+        </div>
+
+        <div class="ai-section">
+            <h3>SUCCESS_METRICS_THRESHOLDS</h3>
+            <pre>
+<span class="yaml-key">metrics:</span>
+  <span class="yaml-key">retrieval_accuracy:</span>
+    <span class="yaml-key">target:</span> <span class="yaml-value">0.95</span>
+    <span class="yaml-key">measurement:</span> <span class="yaml-value">"correct_results/total_queries"</span>
+    
+  <span class="yaml-key">synthesis_efficiency:</span>
+    <span class="yaml-key">target:</span> <span class="yaml-value">"single_pipeline_run"</span>
+    <span class="yaml-key">measurement:</span> <span class="yaml-value">"processing_time"</span>
+    
+  <span class="yaml-key">link_density:</span>
+    <span class="yaml-key">target:</span> <span class="yaml-value">3.0</span>
+    <span class="yaml-key">measurement:</span> <span class="yaml-value">"average_bidirectional_links_per_document"</span>
+            </pre>
+        </div>
+
+        <div class="ai-section">
+            <h3>PROCESSING_PIPELINE</h3>
+            <pre>
+<span class="yaml-key">pipeline_stages:</span>
+  <span class="yaml-key">1_input:</span>
+    <span class="yaml-key">action:</span> <span class="yaml-value">"receive_raw_text"</span>
+    <span class="yaml-key">output:</span> <span class="yaml-value">"stream_entry"</span>
+    
+  <span class="yaml-key">2_parsing:</span>
+    <span class="yaml-key">action:</span> <span class="yaml-value">"extract_entities_and_concepts"</span>
+    <span class="yaml-key">output:</span> <span class="yaml-value">"parsed_entities"</span>
+    
+  <span class="yaml-key">3_classification:</span>
+    <span class="yaml-key">action:</span> <span class="yaml-value">"assign_type_and_layer"</span>
+    <span class="yaml-key">output:</span> <span class="yaml-value">"classified_content"</span>
+    
+  <span class="yaml-key">4_synthesis:</span>
+    <span class="yaml-key">action:</span> <span class="yaml-value">"transform_to_structured_format"</span>
+    <span class="yaml-key">output:</span> <span class="yaml-value">"structured_content"</span>
+            </pre>
+        </div>
+
+        <div class="page-break"></div>
+
+        <div style="text-align: center; margin-top: 100px; color: #666;">
+            <p style="font-size: 14pt; font-weight: 600;">Project Codex Standard v1.0 (Revised)</p>
+            <p style="margin-top: 20px;">Complete with AI-Optimized Reference</p>
+            <p style="margin-top: 20px;">This comprehensive framework provides clear guidance for both human developers and AI agents in managing project knowledge throughout its lifecycle.</p>
+            <p style="margin-top: 40px; font-size: 10pt;">For the latest version and updates, visit the project repository.</p>
+        </div>
+    </div>
+
+    <script>
+        // Set current date
+        document.getElementById('date').textContent = new Date().toLocaleDateString('en-US', { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+        });
+    </script>
+</body>
+</html>
+```
