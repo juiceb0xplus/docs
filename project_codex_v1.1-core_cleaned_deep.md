@@ -893,18 +893,18 @@ The Codex implementation with PRISM Pipeline is successful when:
 | Metric | Target | Measurement |
 |--------|--------|-------------|
 | **Pipeline Completion Rate** | 95% | Successful runs / Total runs |
-| **Average Pipeline Time** | <30 min | Total time from Stage 1 to Stage 6 |
+| **Average Pipeline Time** | 30 min | Total time from Stage 1 to Stage 6 |
 | **Stage Success Rate** | >90% per stage | Stages passed without retry |
-| **Manual Intervention Time** | <5 min per stage | Average human review time |
+| **Manual Intervention Time** | 5 min per stage | Average human review time |
 | **Extraction Accuracy** | 95% | Correctly parsed units / Total units |
 | **Classification Precision** | 90% | Correctly categorized / Total classified |
 | **Synthesis Quality** | 85% | Documents passing validation / Total created |
-| **Integration Conflicts** | <10% | Conflicts / Total documents |
-| **Validation Pass Rate** | >75% | Checks passed / Total checks |
+| **Integration Conflicts** | 10% | Conflicts / Total documents |
+| **Validation Pass Rate** | 75% | Checks passed / Total checks |
 | **Link Density** | 3+ per document | Average bidirectional connections |
 | **State Clarity** | 100% | Documents with defined states |
-| **Deduplication Rate** | >80% | Duplicates caught / Total similar |
-| **Manifest Generation** | <5 seconds | Time to regenerate manifest |
+| **Deduplication Rate** | 80% | Duplicates caught / Total similar |
+| **Manifest Generation** | 5 seconds | Time to regenerate manifest |
 | **Git Staging Accuracy** | 100% | Correctly staged files / Total changes |
 | **Orphan Rate** | 0% | Orphaned documents / Total documents |
 
@@ -912,12 +912,12 @@ The Codex implementation with PRISM Pipeline is successful when:
 
 | Stage | Target Duration | Success Criteria |
 |-------|-----------------|------------------|
-| Extraction | <2 min | 95% unit confidence |
-| Classification | <3 min | 90% correct layer assignment |
-| Synthesis | <10 min | All templates filled |
-| Integration | <5 min | <5 conflicts |
-| Validation | <5 min | >75% pass rate |
-| Publication | <5 min | Complete staging |
+| Extraction | 2 min | 95% unit confidence |
+| Classification | 3 min | 90% correct layer assignment |
+| Synthesis | 10 min | All templates filled |
+| Integration | 5 min | 5 conflicts |
+| Validation | 5 min | 75% pass rate |
+| Publication | 5 min | Complete staging |
 
 ---
 
